@@ -154,11 +154,11 @@ nav button i{
 }
 .move{
     flex-shrink: 0;
-    /* animation-name: mobe;
+    animation-name: mobe;
     animation-duration: 10s;
     animation-delay: 1s;
     animation-iteration-count: infinite;
-    animation-timing-function: linear; */
+    animation-timing-function: linear;
     transform: translateX(0%);
 }
 .move img{
@@ -167,7 +167,7 @@ nav button i{
     margin: 0 1.3vw;
     display: inline-block;
 }
-/* @keyframes mobe {
+@keyframes mobe {
     0%{
         transform:translateX(0%);
     }
@@ -175,4 +175,4 @@ nav button i{
         transform:translateX(-100%);
     }
 
-} */
+}
