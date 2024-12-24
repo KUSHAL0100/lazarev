@@ -26,14 +26,14 @@ function navAnimation() {
         enterTL = gsap.timeline();
         enterTL.to(".nav-bottom", {
           duration: 0.5,
-          height: "24vh",
+          height: "17vh",
         });
-        enterTL.to(".navelem h5 span", {
-          display: "inline-block",
+        enterTL.to(".navelem h5", {
+          display: "block",
           opacity: 1,
           y: 0,
           stagger: {
-            amount: 0.5,
+            amount: 0.4,
           },
           duration: 1,
           ease: "back.out(1.4)",
@@ -55,7 +55,7 @@ function navAnimation() {
         endTL.restart();
       else if (!endTL) {
         endTL = gsap.timeline();
-        endTL.to(".navelem h5 span", {
+        endTL.to(".navelem h5", {
           opacity: 0,
           display: "none",
           y: 35,
@@ -76,3 +76,36 @@ function navAnimation() {
   });
 }
 navAnimation();
+
+var elems=document.querySelectorAll(".right-elem");
+
+elems.forEach((elem)=>{
+  elem.addEventListener("mouseenter",()=>{
+    gsap.to(elem.childNodes[3],{
+      opacity:1,
+      scale:1,
+      duration:0.2,
+    })
+  })
+
+  elem.addEventListener("mouseleave",()=>{
+    gsap.to(elem.childNodes[3],{
+      opacity:0,
+      scale:0,
+      duration:0.3,
+    })
+  })
+  elem.addEventListener("mousemove",(dets)=>{
+    console.log(elem.getBoundingClientRect()," and: ",dets.x);
+    console.log(dets.x - elem.getBoundingClientRect().x, "final output");
+    gsap.to(elem.childNodes[3],{
+      x:dets.x - elem.getBoundingClientRect().x-70,
+      y:dets.y - elem.getBoundingClientRect().y-140,
+      duration:0.4,
+    })
+  })
+    
+})
+
+// getbounding react ee div che ene rectangular shape che enu detail moklave and ene dets.x thi minus karvathi image che ee pointer ni ghanin= najik aai jay
+// dets.x - elem.getBoundingClientRect().x aavu ne ema -70 karyu to image ekdam middle ma aai gai

@@ -14,21 +14,24 @@ html, body {
     color: white;
 }
 nav{
-    width: 80%;
+    width: 90%;
     position: fixed;
     top: 0;
-    left: 15%;
-    margin-top: 2vw;
+    left: 5%;
+    padding: 2vw;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     align-items: flex-start;
     box-sizing: border-box;
-    margin:2vw 0 2vw 0;
-    /* background-color: #3c00ff; */
+    /* margin:0 0 2vw 0; */
+    background-color: #111;
+    z-index: 9;
     height: 10vh;
+    padding-bottom: 3.5vw;
 }
 nav>h1{
+    font-size: 2.5vw;
     cursor: pointer;
 }
 nav .part-2{
@@ -45,23 +48,25 @@ nav .part-2{
 }
 .navelem h4{
     font-weight: 400;
-    padding-bottom: 3vw;
+    padding-bottom: 1vw;
 }
 .navelem h5{
-    margin-top: 1vw;
+    margin-top: 0.7vw;
     font-weight: 400;
     font-size: 0.7vw;
     color: white;
     overflow: hidden;
+    display: none;
     /* background-color: red; */
+    transform: translateY(35px);
 }
 .navelem h5 span{
     text-align: center;
-    display: none;
     overflow: hidden;
-    transform: translateY(35px);
 }
 nav button{
+    margin-top: -0.5vw;
+    z-index: 9;
     padding: 1vw;
     border-radius: 30px;
     font-size: 1vw;
@@ -76,14 +81,38 @@ nav button i{
     font-size: 1.1vw;
 }
 .nav-bottom{
-    width: 100%;
+    width: 97.5%;
     height: 0vh;
     background-color: #111;
     position: absolute;
     top: 100%;
     z-index: 9;
-    border-bottom: 1px solid #dadada;
+    border-bottom: 1px solid #333;
 }
+/* Responsive nav and page1*/
+@media (max-width:600px) {
+    nav .part-2, .nav-bottom{
+        display: none;
+    }
+    nav{
+        margin-top: 4vw;
+        display: flex;
+        align-items: center;
+    }
+    nav>h1{
+        font-size: 2.5vh;
+    }
+    nav button,nav button i{
+        font-size: 2vh;
+    }
+    nav button{
+        padding: 2vw 3vw;
+    }
+    .roundword{
+        font-size: 2.2vw;
+    }
+}  
+ 
 .page1{
     width: 100%;
     height: 100vh;
@@ -133,6 +162,7 @@ nav button i{
     margin-bottom: 2vw;
     width: 50%;
     overflow: hidden;
+    z-index: 1;
 }
 .blur-left{
     background: linear-gradient(to right,#111,transparent);
@@ -160,6 +190,7 @@ nav button i{
     animation-iteration-count: infinite;
     animation-timing-function: linear;
     transform: translateX(0%);
+    z-index: 1;
 }
 .move img{
     width: 3.5vw;
@@ -175,4 +206,52 @@ nav button i{
         transform:translateX(-100%);
     }
 
+}
+/* page2 */
+.page2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #111;
+    width: 100%;
+    height: 100vh;
+    padding: 2vw 5vw;
+    border-top: 1px solid #333;
+    padding-top: 0;
+}
+.left{
+    width:40%;
+    height: 100%;
+    /* background-color: yellow; */
+    padding: 2vw 3.9vw 7vw 2vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.left h5{
+    font-size: 1vw;
+    font-weight: 500;
+}
+.right{
+    width: 50%;
+    /* background-color: red; */
+    height: 100%;
+}
+
+.right-elem{
+    width: 100%;
+    padding:3vw 2vw;
+    /* background-color: yellow; */
+    position: relative;
+    border-top: 1px solid #333;
+}
+.right-elem img{
+    position: absolute;
+    border-radius: 50%;
+    width: 8vw;
+    height: 8vw;
+    object-fit: cover;
+    scale: 0;
+    opacity: 0; 
 }
