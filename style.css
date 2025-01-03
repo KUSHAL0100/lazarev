@@ -2,6 +2,10 @@
     font-family: kushal; /*name kai bii aapay*/
     src: url(./l);
 }
+@font-face {
+    font-family: bolded;
+    src: url(./bold_text);
+}
 *{
     margin: 0;
     padding: 0;
@@ -14,11 +18,11 @@ html, body {
     color: white;
 }
 nav{
-    width: 90%;
+    width: 100%;
     position: fixed;
     top: 0;
-    left: 5%;
-    padding: 2vw;
+    left: 0%;
+    padding: 2vw 6vw;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -31,6 +35,7 @@ nav{
     padding-bottom: 3.5vw;
 }
 nav>h1{
+    margin-top: -0.8vw;
     font-size: 2.5vw;
     cursor: pointer;
 }
@@ -58,14 +63,15 @@ nav .part-2{
     overflow: hidden;
     display: none;
     /* background-color: red; */
-    transform: translateY(35px);
 }
 .navelem h5 span{
+    display: none;
     text-align: center;
     overflow: hidden;
+    transform: translateY(35px);
 }
 nav button{
-    margin-top: -0.5vw;
+    margin-top: -0.8vw;
     z-index: 9;
     padding: 1vw;
     border-radius: 30px;
@@ -81,11 +87,12 @@ nav button i{
     font-size: 1.1vw;
 }
 .nav-bottom{
-    width: 97.5%;
+    width: 100%;
     height: 0vh;
     background-color: #111;
     position: absolute;
     top: 100%;
+    left: 0;
     z-index: 9;
     border-bottom: 1px solid #333;
 }
@@ -215,11 +222,15 @@ nav button i{
     background-color: #111;
     width: 100%;
     height: 100vh;
-    padding: 2vw 5vw;
+    padding: 2vw 4vw;
     border-top: 1px solid #333;
     padding-top: 0;
-    overflow-y: scroll;
-    
+    overflow-y: hidden;
+}
+@media (max-width:360px) {
+    .page2{
+        overflow-y: scroll;
+    }
 }
 .left{
     width:40%;
@@ -248,6 +259,10 @@ nav button i{
     position: relative;
     border-top: 1px solid #333;
     overflow: hidden;
+    transition: all ease 0.5s;
+}
+.right-elem:hover{
+    border-top: 1px solid white;
 }
 .right-elem img{
     position: absolute;
@@ -264,5 +279,329 @@ nav button i{
 .page3{
     width: 100%;
     height: 100vh;
-    background-color: yellow;
+    background-image: url(https://lazarev.kiev.ua/la24/reel-cover.webp);
+    background-size: cover;
+    background-position: center;
+    background-size:1600px 900px;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.page3 video{
+    position: fixed; /*ana thi game tyr video play karva jais ee badhe play thse means video ne akhi screen leva page3 na middle ma javu nai pade aavu krva thi aa vstu aakhi screen lai lese*/
+    /* The position: fixed makes the video occupy the entire viewport, independent of its parent container .page3. */
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    left: 0;
+    top: 0;
+    object-fit: cover; /*bro see here 100% width height api then toy ene na lidhi kem ? because its not it's ratio so we have to give this naa*/
+    transform: scaleX(0.7) scaleY(0);
+    border-radius: 50px;
+    z-index: 9999;
+}   
+.play i{
+    font-size: 4vw;
+    padding: 2vw 2.2vw;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #000;
+    display: inline-block;
+    cursor: pointer;
+}
+.play h4{
+    margin-left: -1vw;
+    margin-top: 1vw;
+    background-color: #fff;
+    color: #000;
+    font-size: 1vw;
+    border-radius: 20px;
+    padding: 1vw 2vw;
+    opacity: 0;
+    transform: translateY(15px);
+}
+
+.page4{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2vw 4vw;
+    width: 100%;
+    height:100vh;
+    color: #000;
+}
+.page4-left{
+    width: 35%;
+    height: 100%;
+    padding: 2vw;
+    /* background-color: yellow; */
+}
+.page4-right{
+    width: 55%;
+    padding: 2vw;
+    height: 100%; /*ahi jo tu 100vh rakhis ne to su thse kbr 1.page4 ne padding api che etle sej niche thi to aa div chalu thase ena pachi ene 100vh ape etle tya thi chalu kari tamara screen ni total heigh hoy etli moti div ni height.... emay sej niche thi chalu thay che etle aa page4 ni bahar nikdi jse etle 100% apoo etle page4 ni andar total height jetlu ave padding minus kari je total height bache etli height aa lai lese*/
+    /* background-color: red; */
+}
+.page4-left h1{
+    font-size: 3.5vw;
+}
+.page4-elem p{
+    color: #bbbbbb;
+    margin-bottom: 2vw;
+}
+.page4-elem h3{
+    font-size: 1.5vw;
+    font-weight: 500;
+    margin-bottom: 4vw;
+}
+.page5{
+    width: 100%;
+    height: 125vh;
+    background-color: #000;
+    padding: 2vw 0;
+}
+.page5-section{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 2vw 4vw;
+    height: 50%;
+    margin-bottom: 1vw;
+} 
+.section-left{
+    width: 30%;
+    height: 100%;
+    padding: 0 2vw;
+}
+.section-left h1{
+    letter-spacing: 2px;
+    padding: 2vw 0 5vw 0;
+    border-top: 1px solid #333;
+    transition: all ease 0.5s;
+}
+.section-left h3{
+    font-weight: 500;
+    font-size: 1.5vw;   
+}
+.section-left:hover h1{
+    border-top: 1px solid white;
+}
+.section-right{
+    padding:0;
+    width: 65%;
+    height: 110%;
+    position: relative;
+    cursor: pointer;
+}
+.section-right img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* z-index: 99; */
+    transition: all ease 0.2s;
+}
+.section-right video{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    object-fit: cover;
+    /* z-index: 2; */
+    transition: all ease 0.2s;
+}
+.page6{
+    min-height: 100vh;
+    width: 100%;
+    background-color: #111;
+    /* overflow-y: hidden; aaa ekk kido che jeee sticky nai thava de koi element neee to ana thi dur revu  jyr koi ana chiildren ne sticky karvo hoy to */
+    padding: 2vw 4vw;
+}
+.page6-top{
+    width: 100%;
+    padding: 4vw 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: red; */
+    color: #fff;
+    border-bottom: 1px solid #333;
+}
+.page6-top h1{
+    font-size: 3.7vw;
+    width: 35%;
+    text-align: left;
+}
+.page6-parent{
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: flex-start;
+    position: relative;
+    min-height: 100vh;
+}
+.page6-left{
+    width: 40%;
+    position: sticky; /*Sticky tya sudhi j work krse jya sudhi eni right  ke left side vado element puro na thay jvo ee element puro thse sticky pati se */
+    top: 13%;
+    left: 0;
+    z-index: 7;
+    padding: 5vw 0 0 0 ;
+    /* background: lightblue; */
+}
+.page6-right{
+    width: 90%;
+    height: 100%;
+    /* background: lightgray; */
+}
+.page6-left .btn{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 1vw 3vw;
+    color: #fff;
+    font-size: 1vw;
+    background-color: #0da34e;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    position: sticky;
+    font-weight: 700;
+}
+.page6-right-top{
+    padding-top: 3vw;
+    width: 100%;
+    padding-bottom: 4vw;
+}
+.page6-right-top .pad{
+    font-size: .9vw;
+    padding-right: 12vw;
+    font-weight: 400;
+}
+.page6-right-top h1{
+    padding-right: 2vw;
+    font-size: 2.6vw;
+    font-weight: 500;
+}
+.page6-right-bottom{
+    width: 100%;
+}
+.uiux{
+    border-top: 2px solid #fff;
+    width: 100%;
+    padding: 2vw 0;
+}
+.uiux h1,#product h1{
+    width: 100%;
+    font-size: 3.5vw;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.uiux h1 i{
+    font-size: 2vw;
+    font-weight: 300;
+    display: inline-block;
+}
+#product h1 i{
+    rotate: 180deg;
+}
+.uiux-about{
+    padding-top:5vh;
+    padding-bottom: 3vw;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding-right: 8vw;
+}
+.uiux-about h4{
+    padding: .5vw 1.2vw;
+    font-size: .8vw;
+    border: 1px solid #333;
+    border-radius: 40px;
+    font-weight: 700;
+}
+.infocards{
+    width: 100%;
+}
+.infocard {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    padding: 2vw 0 5vw 0;
+    border-top: 1px solid #333;
+    position: relative;
+    overflow: hidden;
+    z-index: 5;
+    transition: border-top ease 0.2s;
+}
+
+.infocard h1 {
+    font-size: 1.8vw;
+    width: 25%;
+    z-index: 2;
+    transition: padding-left ease-out 0.4s;
+}
+
+.infocard p {
+    width: 55%;
+    margin-left: 3vw;
+    z-index: 2;
+}
+
+.infocard i {
+    position: absolute;
+    display: inline-block;
+    margin-left: 5vw;
+    font-size: 1.7vw;
+    z-index: 1;
+    top: 15%;
+    right: 0;
+    transition: padding-right ease-out 0.4s;
+}
+
+.mask {
+    width: 100%;
+    height: 100%;
+    background-color: #222;
+    position: absolute;
+    top: 0;
+    left: 0; /* Start above the card */
+    opacity: 0;
+    z-index: 1; /* Ensure it's above other elements */
+    transform: translateY(0%);
+}
+
+.infocard:hover h1 {
+    padding-left: 1vw;
+}
+
+.infocard:hover {
+    border-top: 1px solid #fff;
+}
+
+.infocard:hover i {
+    padding-right: 1vw;
+}
+summary::marker{
+    content: "";
+}
+
+#product{
+    border-top: 2px solid #333;
+}
+
+.page7{
+    width: 100%;
+    min-height: 100vh;
+    background-color: #fff;
+    color: #000;
+}
+.page7>h1{
+    font-family: bolded;
+    font-size: 6vw;
+    text-align: center;
+    padding: 2vw 3vw;
+    width: 50%;
+    margin: 10vw auto 0 auto;
 }
