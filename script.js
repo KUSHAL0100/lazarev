@@ -6,7 +6,66 @@
 //     ease:"linear",
 //     repeat:-1
 // })
+function loadingAnimation() {
+  var tl=gsap.timeline();
+tl.from(".page1",{
+  opacity:0,
+  duration:0.5,
+  delay:0.2,
+})
+tl.from(".page1",{
+  x:10,
+  y:10,
+  transform:'scaleX(0.7) scaleY(0.2)',
+  borderRadius:'50px',
+  duration:2,
+  ease:'expo.out'
+})
+tl.from(nav,{
+  opacity:0
+})
 
+tl.from(".page1 h1, .page1 h4, .page1 div",{
+  opacity:0,
+  stagger:0.15,
+  duration:0.5,
+})
+}
+function locomotive_animation(){
+  gsap.registerPlugin(ScrollTrigger);
+
+    const locoScroll = new LocomotiveScroll({
+        el: document.querySelector(".main"),
+        smooth: true,
+
+        // for tablet smooth
+        tablet: { smooth: true },
+
+        // for mobile
+        smartphone: { smooth: true }
+    });
+    locoScroll.on("scroll", ScrollTrigger.update);
+
+    ScrollTrigger.scrollerProxy(".main", {
+        scrollTop(value) {
+            return arguments.length
+                ? locoScroll.scrollTo(value, 0, 0)
+                : locoScroll.scroll.instance.scroll.y;
+        },
+        getBoundingClientRect() {
+            return {
+                top: 0,
+                left: 0,
+                width: window.innerWidth,
+                height: window.innerHeight
+            };
+        }
+    });
+
+    ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+
+    ScrollTrigger.refresh();
+}
 function navAnimation() {
   var nav = document.querySelector("nav");
   var enterTL;
@@ -171,12 +230,10 @@ sections.forEach((section)=>{
   })
 })
 }
-navAnimation();
-page2Animation();
-page3Animation();
-page5Animation();
-var cards = document.querySelectorAll(".infocard");
-cards.forEach((card) => {
+function page6Animation() {
+  
+  var cards = document.querySelectorAll(".infocard");
+  cards.forEach((card) => {
   var mask = card.querySelector(".mask");
 
   card.addEventListener("mouseenter", () => {
@@ -190,9 +247,9 @@ cards.forEach((card) => {
       duration: 0.4,
       ease: "power2.out"
     } // Move into view and become visible
-    );
+  );
   });
-
+  
   card.addEventListener("mouseleave", () => {
     gsap.to(mask, {
       y: "100%", // Move back above
@@ -263,3 +320,30 @@ summary2.addEventListener("click",()=>{
     mark=1
   }
 })
+
+}
+function page7Animation() {
+  gsap.from(".card-details h5",{
+    x:0,
+    duration:1,
+    stagger:{
+      amount:-0.5
+    },
+    scrollTrigger:{
+      trigger:".card-details",
+      scroller:".main",
+      // markers:true,
+      start:"top 70%",
+      end:"top 0%",
+      scrub:true
+    }
+  })
+}
+loadingAnimation();
+locomotive_animation();
+navAnimation();
+page2Animation();
+page3Animation();
+page5Animation();
+page6Animation(); 
+page7Animation();

@@ -19,7 +19,7 @@ html, body {
 }
 nav{
     width: 100%;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0%;
     padding: 2vw 6vw;
@@ -28,7 +28,6 @@ nav{
     justify-content: space-between;
     align-items: flex-start;
     box-sizing: border-box;
-    /* margin:0 0 2vw 0; */
     background-color: #111;
     z-index: 9;
     height: 10vh;
@@ -62,7 +61,6 @@ nav .part-2{
     color: white;
     overflow: hidden;
     display: none;
-    /* background-color: red; */
 }
 .navelem h5 span{
     display: none;
@@ -128,6 +126,7 @@ nav button i{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    /* position: relative;   */
 }
 .page1 h1{
     font-size: 8vw;
@@ -231,6 +230,9 @@ nav button i{
     .page2{
         overflow-y: scroll;
     }
+    .page2::-webkit-scrollbar{
+        display: none;
+    }
 }
 .left{
     width:40%;
@@ -284,13 +286,15 @@ nav button i{
     background-position: center;
     background-size:1600px 900px;
     background-repeat: no-repeat;
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 100;
+    position: relative;
 }
+
 .page3 video{
-    position: fixed; /*ana thi game tyr video play karva jais ee badhe play thse means video ne akhi screen leva page3 na middle ma javu nai pade aavu krva thi aa vstu aakhi screen lai lese*/
+    position: absolute; /*ana thi game tyr video play karva jais ee badhe play thse means video ne akhi screen leva page3 na middle ma javu nai pade aavu krva thi aa vstu aakhi screen lai lese*/
     /* The position: fixed makes the video occupy the entire viewport, independent of its parent container .page3. */
     width: 100vw;
     height: 100vh;
@@ -300,7 +304,7 @@ nav button i{
     object-fit: cover; /*bro see here 100% width height api then toy ene na lidhi kem ? because its not it's ratio so we have to give this naa*/
     transform: scaleX(0.7) scaleY(0);
     border-radius: 50px;
-    z-index: 9999;
+    z-index: 99;
 }   
 .play i{
     font-size: 4vw;
@@ -596,12 +600,104 @@ summary::marker{
     min-height: 100vh;
     background-color: #fff;
     color: #000;
+    padding: 0 3vw;
+    margin-bottom: 10vh;
 }
 .page7>h1{
     font-family: bolded;
     font-size: 6vw;
     text-align: center;
-    padding: 2vw 3vw;
+    padding: 7vw 0 3vw 0;
     width: 50%;
-    margin: 10vw auto 0 auto;
+    margin:0 auto;
 }
+.page7-parent{
+    display: flex;
+    padding: 1vw 2vw;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10vw;
+}
+.page7-btn{
+    background-color: #4f5bff;
+    color: #fff;
+    padding: 1.4vw 1vw;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1vw;
+    width: 60%;
+}
+.page7-firstP{
+    padding: 0 20vw 5vw 0;
+    font-size: 1.9vw;
+}
+.page7-secondP{
+    padding: 0 20vw 5vw 0;
+    font-size: 1.9vw;
+}
+.page7-parent{
+    border-bottom: 1px solid #dadada;
+}
+.cards-parent{
+    display: flex;
+    padding: 1vw 3vw;
+    justify-content: space-between;
+    white-space:nowrap;
+    gap: 1vw;
+}
+.card{
+    width: 23%;
+    font-size: 0.8vw;
+    border-right: 1px solid #dadada;
+}
+.padding-card{
+    width:32%;
+}
+.product-card{
+    width: 30%;
+}
+.card-details{
+    width: 80%;
+    padding-top: 2vw;
+    font-size: 1.2vw;
+}
+.card-details h5{
+    background-color: #000;
+    color: #fff;
+    border-radius: 30px;
+    padding: 0.5vw 1vw 0.5vw 3vw;
+    margin: 0.2vw 0;
+    position: relative;
+}
+.card-details h5 span{
+    padding: 0.2vw 0.7vw;
+    background-color: #333;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: 2%;
+    top:15%;
+}
+.card-details h5:nth-child(1){
+    transform: translateX(0);
+}
+.card-details h5:nth-child(2){
+    transform: translateX(10%);
+}
+.card-details h5:nth-child(3){
+    transform: translateX(20%);
+}
+.card-details h5:nth-child(4){
+    transform: translateX(30%);
+}
+.card-details h5:nth-child(5){
+    transform: translateX(40%);
+}
+.card-details h5:nth-child(6){
+    transform: translateX(50%);
+}
+.page8{
+    height: 100vh;
+    background-color: #000;
+} 
